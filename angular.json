@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "cookies": {
+      "projectType": "library",
+      "root": "projects/cookies",
+      "sourceRoot": "projects/cookies/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cookies/tsconfig.lib.json",
+            "project": "projects/cookies/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cookies/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cookies/src/test.ts",
+            "tsConfig": "projects/cookies/tsconfig.spec.json",
+            "karmaConfig": "projects/cookies/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cookies/tsconfig.lib.json",
+              "projects/cookies/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "Cookies"
